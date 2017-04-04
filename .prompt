@@ -1,0 +1,43 @@
+BLACK="\[\033[0;30m\]"
+BLUE="\[\033[0;34m\]"
+GREEN="\[\033[0;32m\]"
+CYAN="\[\033[0;36m\]"
+RED="\[\033[0;31m\]"
+PURPLE="\[\033[0;35m\]"
+BROWN="\[\033[0;33m\]"
+LIGHT_GRAY="\[\033[0;37m\]"
+DARK_GRAY="\[\033[1;30m\]"
+BOLD_BLUE="\[\033[1;34m\]"
+BOLD_GREEN="\[\033[1;32m\]"
+BOLD_CYAN="\[\033[1;36m\]"
+BOLD_RED="\[\033[1;31m\]"
+BOLD_PURPLE="\[\033[1;35m\]"
+YELLOW="\[\033[1;33m\]"
+WHITE="\[\033[1;37m\]"
+RESET="\[\033[m\]"
+
+# Credit for these functions goes to
+# https://github.com/mathiasbynens/dotfiles/blob/master/.bash_prompt
+function parse_git_dirty() {
+    TMP=$(git status 2> /dev/null | tail -n1);
+    if [[ $TMP != "nothing to commit, working directory clean" ]]; then
+        echo "(!) ";
+    else
+        echo "";
+    fi
+    return;
+}
+
+function parse_git_branch() {
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/"
+}
+
+export SCREEN_TITLE=""
+if [ "$TERM" == "screen" ]; then
+    export SCREEN_TITLE="$WHITE[SCREEN] "
+fi
+
+export PS1="$SCREEN_TITLE$LIGHT_GRAY\h$RESET $CYAN[\w]$GREEN \$([[ -n \$(git branch 2> /dev/null) ]] && echo \"git:\")\$(parse_git_branch)$RED \$([[ -n \$(git branch 2> /dev/null) ]] && echo \"\$(parse_git_dirty)\")$WHITE% $RESET"
+
+# For multi-line commands:
+export PS2="$GREEN> $RESET"
