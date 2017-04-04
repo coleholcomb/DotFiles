@@ -7,6 +7,7 @@ export PATH="/Users/coleholcomb/anaconda3/bin:$PATH"
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
+source ~/DotFiles/.bashrc
 source ~/DotFiles/.prompt
 source ~/DotFiles/.alias
 
