@@ -1,6 +1,3 @@
-
-export PATH="/Users/coleholcomb/anaconda3/bin:$PATH"
-
 # This profile contains cross-platform profile stuffs. Anything that is
 #   machine specific goes in ~/.local_profile
 

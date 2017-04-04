@@ -8,3 +8,5 @@ CURRENTLY CONTAINS:
 .alias (containing all aliases)
 
 .prompt (customize terminal prompt appearance)
+
+.vimrc (customize vim setting, must be moved to root dir)
