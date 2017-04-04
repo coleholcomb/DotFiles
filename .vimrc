@@ -2,7 +2,7 @@ call pathogen#helptags()
 call pathogen#infect()
 
 " thanks to http://nvie.com/posts/how-i-boosted-my-vim/
-set nowrap        " don't wrap lines
+"set nowrap        " don't wrap lines
 set tabstop=4     " a tab is four spaces
 set backspace=indent,eol,start
                     " allow backspacing over everything in insert mode
@@ -32,4 +32,3 @@ syntax on
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
-set mouse=a
