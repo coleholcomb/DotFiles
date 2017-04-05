@@ -1,1 +1,4 @@
 alias vi="vim"
+alias grm="git rm"
+alias gadd="git add"
+alias gstat="git status"
